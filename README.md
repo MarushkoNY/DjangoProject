@@ -12,7 +12,7 @@ Simple Django MVC project, using following technologies (in a basic perfomance):
   9.Embedded SQLite DB 
 __________________________________________________________
 
-To run project follow this instractions: 
+To run project follow this instructions: 
   1. Open terminal in root directory and type: "python manage.py runserver" 
   2. Open URL "localhost:8000" or "127.0.0.1:8000" 
   3.(Optionable) To access to admin panel, type "localhost:8000/admin" 
