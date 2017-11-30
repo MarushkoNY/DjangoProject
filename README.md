@@ -1,6 +1,6 @@
 For Leroi Merlin's checking.
 
-Simple Django MVC project, using following technologies:
+Simple Django MVC project, using following technologies (in a basic perfomance):
   1.Python (obviously) 
   2.Django (-||-) 
   3.HTML/CSS + Twitter Bootstrap  
@@ -8,8 +8,8 @@ Simple Django MVC project, using following technologies:
   5.Sessions 
   6.Cookies 
   7.Registration 
-  7.Django template language 
-  8.Embedded SQLite DB 
+  8.Django template language 
+  9.Embedded SQLite DB 
 __________________________________________________________
 
 To run project follow this instractions: 
