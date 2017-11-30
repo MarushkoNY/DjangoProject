@@ -1,0 +1,24 @@
+{% extends 'blog_shad/index.html' %}
+
+{% block login %}
+<center><form class="form-signin" action="/auth/login/" method="post">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Пожалуйста, войдите в систему:</h2>
+        <label for="inputText" class="sr-only">Ваш логин:</label>
+        <input type="text" id="inputText" class="form-control" placeholder="Логин" name="username" required autofocus>
+        <label for="inputPassword" class="sr-only">Пароль:</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" name="password" required>
+        <div class="checkbox">
+
+            {% if login_error %}
+                <label class="errornote"><strong>{{ login_error }}</strong></label>
+            {% endif %}
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+</form>
+    <br>
+    <form action="/auth/register/">
+    <button class="btn btn-lg btn-primary btn-block">Зарегестрироваться</button>
+      </form>
+</center>
+{% endblock %}

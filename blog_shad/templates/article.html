@@ -1,0 +1,36 @@
+{% extends 'blog_shad/index.html' %}
+{% block article %}
+
+    <h4>Дата публикации: {{ article.article_datetime }}</h4>
+    <h3>{{ article.article_title }}</h3>
+    <p>{{ article.article_text }}</p>
+    <hr>
+    <div class="row">
+        <p><h2>Комментарии:</h2></p>
+    {% for comment in comments %}
+        <p><strong>{{ comment.comment_text }}</strong></p>
+        <p> Автор: {{ comment.comment_author }}</p>
+        <hr>
+    {% endfor %}
+    <ul class="pagination">
+            {% if comments.has_previous %}
+                 <li><a href="?page={{ comments.previous_page_number }}">Предыдущая</a></li>
+            {% endif %}
+
+                 <li class="active"><a href="#">Страница {{ comments.number }} из {{ comments.paginator.num_pages }}</a></li>
+             {% if comments.has_next %}
+                 <li><a href="?page={{ comments.next_page_number }}">Следующая</a></li>
+             {% endif %}
+    </ul>
+    </div>
+    {% if username_status %}
+    <form action="/articles/addcomment/{{ article.id }}/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" class="button" value="Добавить комментарий">
+    </form>
+    {% endif %}
+
+
+
+{% endblock %}

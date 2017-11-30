@@ -1,0 +1,11 @@
+{% extends 'blog_shad/index.html' %}
+
+{% block login %}
+    <form action="/auth/register/" method="post">
+            {% csrf_token %}
+    {{ form }}
+    <input class="button" type="submit" value="Зарегестрироваться">
+    </form>
+
+
+{% endblock %}

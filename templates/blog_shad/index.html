@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My personal blog</title>
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="shortcut icon" href="{% static 'blog_shad/img/home-icon.png' %}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylo.css' %}">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body background="{% static 'blog_shad/img/back1.jpg' %}">
+
+<ul class="nav nav-pills  navbar-inverse " >
+        {% if username_status %}
+        <li role="presentation" class="active"><a href="/auth/logout/">Выйти ({{ username }})</a></li>
+        {% else %}
+        <li role="presentation" class="active"><a href="/auth/login/">Войти</a></li>
+        {% endif %}
+
+    </ul>
+<div class="container-fluid">
+<hr>
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-xs-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active"><a href="/">Блог</a></li>
+              <li role="presentation"><a href="">¯\_(ツ)_/¯</a></li>
+              <li role="presentation"><a href="/contacts/">Контакты</a></li>
+
+            </ul>
+        </div>
+    <div class="col-lg-1 col-md-1 col-xs-1"></div>
+        <div class="col-lg-5 col-md-5 col-xs-5">
+            {% block article %}{% endblock %}
+            {% block login %}{% endblock %}
+            {% block contacts %}{% endblock %}
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

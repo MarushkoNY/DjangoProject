@@ -1,0 +1,24 @@
+{% extends 'blog_shad/index.html' %}
+{% load staticfiles %}
+{% block article %}
+    {% for article in article1 %}
+        <h6 xmlns="http://www.w3.org/1999/html">Дата публикации: {{ article.article_datetime }}</h6>
+        <h4>Название статьи: <a href="/article/{{ article.id }}">{{ article.article_title }}</a></h4>
+        <p>{{ article.article_text }}</p>
+        <p><a href="/articles/addLike/{{ article.id }}" ><img src="{% static 'blog_shad/img/like.png' %}" height="20" width="20"></a>
+            {{ article.article_likes }}</p>
+        <hr>
+    {% endfor %}
+
+
+    <ul class="pagination">
+            {% if article1.has_previous %}
+                 <li><a href="?page={{ article1.previous_page_number }}">Предыдущая</a></li>
+            {% endif %}
+
+                 <li class="active"><a href="#">Страница {{ article1.number }} из {{ article1.paginator.num_pages }}</a></li>
+             {% if article1.has_next %}
+                 <li><a href="?page={{ article1.next_page_number }}">Следующая</a></li>
+             {% endif %}
+    </ul>
+{% endblock %}
