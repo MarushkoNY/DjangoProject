@@ -1,4 +1,4 @@
-For Leroi Merlin's checking.
+For Leroy Merlin's checking.
 
 Simple Django MVC project, using following technologies (in a basic perfomance):
   1.Python (obviously) 
